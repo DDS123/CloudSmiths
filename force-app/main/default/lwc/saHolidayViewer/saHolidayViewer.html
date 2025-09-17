@@ -1,0 +1,51 @@
+<template>
+  <lightning-card title="🎉 SA ID Holiday Checker" icon-name="custom:custom63">
+    <div class="slds-p-around_medium">
+         <p>Enter your South African ID number to check public holidays for the year.</p>
+      <lightning-input
+        label="SA ID Number"
+        value={idNumber}
+        onchange={handleChange}
+        max-length="13"
+        type="text"
+        placeholder="Enter 13-digit ID"
+      ></lightning-input>
+  
+        <template if:true={errorMessage}>
+            <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
+        </template>
+        <br/>
+      <lightning-button
+        label="Search"
+        onclick={handleSearch}
+        variant="brand"
+        class="slds-m-top_medium"
+        disabled={isDisabled}
+      ></lightning-button>
+
+        <div class="slds-m-top_large">
+        <template if:true={isLoading}>
+            <div class="slds-grid slds-grid_vertical slds-align_absolute-center slds-text-align_center slds-m-top_medium">
+                <lightning-spinner alternative-text="Loading holidays..." size="medium"></lightning-spinner>
+                <p class="slds-m-top_small slds-text-body_regular">Fetching public holidays…</p>
+            </div>
+        </template>
+        <template if:true={showTable}>
+            <lightning-datatable
+                key-field="name"
+                data={result}
+                columns={columns}
+                hide-checkbox-column
+                hiderow-number-column
+            ></lightning-datatable>
+        </template>
+        <template if:true={result2}>
+          <template if:false={showTable}>
+            <p class="slds-text-color_weak slds-m-top_medium">No holidays found for this birth year.</p>
+          </template>
+        </template>
+
+        </div>
+    </div>
+  </lightning-card>
+</template>
