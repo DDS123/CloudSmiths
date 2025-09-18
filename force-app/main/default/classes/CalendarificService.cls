@@ -1,4 +1,4 @@
-public without sharing class CalendarificService {
+global without sharing class CalendarificService {
 
     /**
      * Fetches public holidays for South Africa from Calendarific API.

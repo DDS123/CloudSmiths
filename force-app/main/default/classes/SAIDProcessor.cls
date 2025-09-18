@@ -7,7 +7,7 @@
  * Author: Divya Muvvala
  * Created: September 2025
  */
-public without sharing class SAIDProcessor {
+global without sharing class SAIDProcessor {
   
     /**
      * Main method exposed to LWC or Flow.
