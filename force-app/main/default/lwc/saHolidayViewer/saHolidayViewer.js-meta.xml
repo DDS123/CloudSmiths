@@ -4,8 +4,6 @@
     <isExposed>true</isExposed>
   <targets>
     <target>lightning__FlowScreen</target>
-    <target>lightningCommunity__Page</target>
-    <target>lightningCommunity__Default</target>
   </targets>
   <targetConfigs>
     <targetConfig targets="lightning__FlowScreen">
